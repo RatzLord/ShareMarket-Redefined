@@ -75,6 +75,7 @@ class Investors(db.Model):
 	sales = db.relationship('Sales',backref='investors', lazy='dynamic')
 	purchases = db.relationship('Purchases', primaryjoin="and_(Investors.id)==Purchases.recipient_id")
 	amount_left = db.Column(db.Float, nullable=False, default=0)
+	ini_amount = db.Column(db.Float, nullable=False, default=0)
 
 class Sales(db.Model):
 	__tablename__ = 'sales'
